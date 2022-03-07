@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Silder</title>
+    <style>
+        body{
+            background: rgba(47, 53, 58, 0.85);
+        }
+        h1
+        {
+            text-align: center;
+            letter-spacing: 0.3em;
+            font-size: 40px;
+            margin-top: 50px;
+            color:whitesmoke;
+
+        }
+        .maindiv{
+            width: 70%;
+            height: 400px;
+            position:absolute;
+            transform:translate(-50% , -50%);
+            left: 50%;
+            top: 50%;
+            background-image: url("/01-03-2022/pexels-anna-kozlova-10183979.jpg");
+            box-shadow: 1px 2px 25px 10px rgb(189, 184, 184);
+            animation:slider 9s infinite linear;
+            background-size: 100% 100%;
+        }
+        @keyframes slider{
+            0%{  background-image: url("/01-03-2022/pexels-antonio-florentini-3255543.jpg");
+            background-size: 100% 100%;}
+            25%{background-image: url("/01-03-2022/pexels-ertuğrul-tez-9786969.jpg");
+            background-size: 100% 100%;}
+            50%{background-image: url("/01-03-2022/pexels-nick-wehrli-5282269.jpg");
+            background-size: 100% 100%;}   
+            75%{background-image: url("/01-03-2022/pexels-yunus-tuğ-9724071.jpg");
+            background-size: 100% 100%;}  
+        }
+    </style>
+    </head>
+    <body>
+        <h1>CSS Silder Animation</h1>
+        <div class="maindiv">
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Plaindrome
+        </title>
+    </head>
+    <body>
+        Enter a number for Plaindrome:-<input type="int" id="search"/><br><br>
+        <button type="button" onclick="move()">Submit for results</button>
+
+
+    </body>
+    <script>
+        function move(){
+            var a = document.getElementById("search").value;
+            var a1=0;
+            a = parseInt(a);
+            a1=a;
+            var r=0;
+            var sum=0;
+            while(a1>0){
+                r=a1%10
+                sum = sum*10 +r;
+                a1 = parseInt(a1/10);  
+
+                 
+
+                } 
+                if(sum==a){
+                    document.write(a+"this is pallindrome .");
+                }else{
+                    document.write(a+"it is not an plaindrome .");
+                }
+
+            }
+        
+    </script>
+</html>

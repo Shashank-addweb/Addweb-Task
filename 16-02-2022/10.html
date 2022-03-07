@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maximum of the number</title>
+    </head>
+    <body>
+        First number:-<input type="int" id="f1"/><br><br>
+        Second number:-<input type="int" id="f2"/><br><br>
+        Third number:-<input type="int" id="f3"/><br><br>
+        <button type="button" onclick="move()">Find which is MAX.</button>
+    </body>
+    <script>
+        function move(){
+            var a = document.getElementById("f1").value;
+            var b = document.getElementById("f2").value;
+            var c = document.getElementById("f3").value;
+            if(a>b&&a>c){
+                document.write("This is the biggest value :-  ",a);
+            }else if(b>a&&b>c){
+                document.write("This is the biggest value :-  ",b);
+            }else{
+                document.write("This is the biggest value :-  ",c);
+            }
+        }
+    </script>
+</html>

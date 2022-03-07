@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>Txt file</h2>
+<button type="button" onclick="loadDoc()">Change Content </button>
+</div>
+<div id="demo1">
+  <h2>html file</h2>
+  <button type="button" onclick="loadDoc1()">Change Content</button>
+  </div>
+  <div id="demo2">
+    <h2>json file</h2>
+    <button type="button" onclick ="loadDoc2()">change content</button>
+  </div>
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "shashank.txt");
+  xhttp.send();
+}
+function loadDoc1() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo1").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "state.html");
+  xhttp.send();
+}
+function loadDoc2() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo2").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "jas.json");
+  xhttp.send();
+}
+
+</script>
+
+</body>
+</html>

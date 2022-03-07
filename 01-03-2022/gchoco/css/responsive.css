@@ -1,0 +1,241 @@
+/*--------------------------------------------------------------------- 
+File Name: responsive.css 
+---------------------------------------------------------------------*/
+
+@media (min-width: 1200px) and (max-width: 1342px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0px 22px;
+    }
+    #carouselExampleIndicators .carousel-control-prev {
+        right: 13%;
+    }
+    #content::before {
+        width: 343px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #carouselExampleIndicators .carousel-control-prev {
+        right: 19%;
+    }
+    #carouselExampleIndicators .carousel-control-next,
+    #carouselExampleIndicators .carousel-control-prev {
+        top: 85%;
+    }
+    #content::before {
+        background: inherit;
+        position: inherit;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0px 10px;
+        font-size: 16px;
+    }
+    .designer h1 {
+        font-size: 104px;
+        line-height: 108px;
+    }
+    .party h3 {
+        font-size: 23px;
+    }
+    .cho_text h3 {
+        font-size: 20px;
+    }
+    .cos_text {
+        padding-top: 22px;
+    }
+    .choose::after,
+    .choose::before {
+        position: inherit;
+        background: inherit;
+    }
+    .infoma h3 {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    #content::before {
+        background: inherit;
+        position: inherit;
+    }
+    #sidebar::before {
+        width: 7.1%;
+    }
+    #carouselExampleIndicators .carousel-control-prev {
+        right: 17%;
+    }
+    .testop_none {
+        display: inherit;
+    }
+    .slider_main {
+        padding-top: 15%;
+        padding-bottom: 120px;
+    }
+    .choclate_img h3 {
+        font-size: 95px;
+    }
+    .customers_pro {
+        display: inherit;
+    }
+    .cos_text {
+        padding: 30px;
+    }
+    .choose::after,
+    .choose::before {
+        position: inherit;
+        background: inherit;
+    }
+    .d_none {
+        display: none !important;
+    }
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0px;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+    }
+    .navigation .navbar-collapse {
+        background: #432b1f;
+        padding: 20px;
+        margin-top: 29px;
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        border: inherit;
+        float: right;
+        padding: 0;
+        width: 100%;
+        outline: inherit;
+        margin-top: -25px;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+        width: 48px;
+        float: right;
+    }
+}
+
+@media (max-width: 575px) {
+    #content::before {
+        background: inherit;
+        position: inherit;
+    }
+    #carouselExampleIndicators .carousel-control-prev {
+        right: 31%;
+    }
+#carouselExampleIndicators .carousel-control-next, #carouselExampleIndicators .carousel-control-prev {
+  top: 100%;
+  margin-top: 20px;
+}
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0px;
+    }
+    .testop_none {
+        display: inherit;
+    }
+    .slider_main {
+        padding-top: 15%;
+        padding-bottom: 63px;
+    }
+.designer h1 {
+  font-size: 50px;
+  line-height: 80px;
+}
+    .choose::after,
+    .choose::before {
+        position: inherit;
+        background: inherit;
+    }
+    .titlepage h2 {
+        font-size: 28px;
+        line-height: 43px;
+    }
+    .party h3 {
+        font-size: 15px;
+    }
+    .cho_text h3 {
+        font-size: 19px;
+    }
+    .choclate_img h3 {
+        font-size: 47px;
+    }
+    .customers_pro {
+        display: inherit;
+    }
+    .cos_text {
+        padding: 30px;
+    }
+    .d_none {
+        display: none !important;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+    }
+    .header {
+        padding: 30px 0px;
+    }
+    .navigation .navbar-collapse {
+        background: #432b1f;
+        padding: 20px;
+        margin-top: 29px;
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        border: inherit;
+        float: right;
+        padding: 0;
+        width: 100%;
+        outline: inherit;
+        margin-top: -34px;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+        width: 48px;
+        float: right;
+    }
+}
+
+@media (max-width: 767px) {
+
+.slider_main {
+  padding-top: 50px;
+  z-index: 99999;
+  position: relative;
+  padding: 0 20px 98px;
+}
+
+#ordersid .carousel-control-next, #ordersid .carousel-control-prev {
+  display: none;
+}
+
+
+
+}

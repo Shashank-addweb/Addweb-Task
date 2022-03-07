@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head><title>sum of its digits</title></head>
+    <body>
+      enter a number with spaces to get sum(1 2 3 = 6) :-<input type="int" id="sum"/>
+      <button type="button" onclick="move()">Get sum </button>
+    </body>
+    <script>
+        function move(){
+            var a = document.getElementById("sum").value;
+            var b = 0;
+            while(a !=0){
+                b = b+a %10;
+                a = parseInt(a/10);
+            } document.write(b);
+
+        }
+    </script>
+</html>
+<script>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-map_">
+      <rect width="20" height="20"/>
+    </clipPath>
+  </defs>
+  <g id="map_" data-name="map " clip-path="url(#clip-map_)">
+    <path id="Icon_material-location-on" data-name="Icon material-location-on" d="M14.119,3A6.614,6.614,0,0,0,7.5,9.619c0,4.964,6.619,12.293,6.619,12.293s6.619-7.328,6.619-12.293A6.614,6.614,0,0,0,14.119,3Zm0,8.983a2.364,2.364,0,1,1,2.364-2.364A2.364,2.364,0,0,1,14.119,11.983Z" transform="translate(-4.119 -2.456)" fill="#faf076"/>
+  </g>
+</svg>

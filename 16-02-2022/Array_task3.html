@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read an array and count total no. of even and odd eliments.</title>
+</head>
+<body>
+    <h1>Read an array and count total no. of even and odd eliments.</h1><br><br><br>
+    <script>
+        var arr;
+        arr=window.prompt("enter elements.").split(",");
+        len=arr.length;
+        var even=0;
+        var odd=0;
+        for(var i=0;i<len;i++)
+        {
+            if (parseInt(arr[i])%2==0)
+            {
+                even++;
+            }
+            else
+            {
+                odd++;
+            }
+        }
+        document.write("total even= ",even,"<br>");
+        document.write("total odd= ",odd);
+    </script>
+</body>
+</html>

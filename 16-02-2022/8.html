@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Percentage</title>
+    </head>
+    <body><center>
+        English:-<input type="int" id="eng"/><br><br>
+        Hindi:-<input type="int" id="hin"/> <br><br>
+        Maths:-<input type="int" id="mat"/><br><br>
+        <button type="button" onclick="move()">Find the percentage</button>
+    </center></body>
+    <script>
+        function move(){
+            var a = parseInt(document.getElementById("eng").value);
+            var b = parseInt(document.getElementById("hin").value);
+            var c = parseInt(document.getElementById("mat").value);
+            var tot = a+b+c ;
+            document.write("The total number is :- ",tot,"<br>");
+            var per = (tot/300)*100; 
+             document.write("The percentage is :-  ",per);
+        }
+    </script>
+</html>

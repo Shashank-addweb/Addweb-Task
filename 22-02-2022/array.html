@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="in"/>
+<button type="text" onclick="move()">try it </button>
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+//fruits.sort(); it will assign it alphabatical
+var len =fruits.length
+document.write(len+"<br>");
+
+let text = fruits.toString();
+document.write(text);
+//new array can be determined
+//sort()
+function move(){
+    fruits.push(document.getElementById("in").value);
+
+document.write(fruits);
+document.write(fruits.length);
+}
+
+</script>
+
+</body>
+</html>

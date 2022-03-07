@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Armstrong number</title></head>
+    <body>
+        Enter a number :- <input type="int" id = "arm"/>
+        <button type="button" onclick="move()"><b>FIND ARMSTRONG NUMBER</b></button>
+    </body>
+    <script>
+        function move(){
+            var  temp , sum = 0;
+            temp = document.getElementById("arm").value;
+            while(temp>0){
+                var remainder = temp%10;
+                sum += remainder * remainder *remainder;
+                temp = parseInt(temp/10);     
+            }
+            if(sum==temp){
+                document.write(temp," is an armstrong number .");
+            }else{
+                document.write(temp," is not an armstrong number .");
+            }
+
+
+        }
+
+    </script>
+</html>
+
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Area of triangle</title></head>
+    <body>
+        <center>
+            First side:-<input type="int" id="f1" placeholder="Number 1"/><br><br>
+            Second side:-<input type="int" id="f2" placeholder="Number 2"/><br><br>
+            Third side:-<input type="int" id="f3" placeholder="Number 3"/><br><br>
+            <button type="button" onclick="move()">Area of triangle</button>
+        </center>
+    </body>
+    <script>
+        function move(){
+            var a =document.getElementById("f1").value;
+            var b =document.getElementById("f2").value;
+            var c =document.getElementById("f3").value;
+            var d = (a+b+c)/2;
+            var e = Math.sqrt(d*(d-a)*(d-b)*(d-c));
+
+            document.write("The area of triangle is :- "+e)
+        }
+    </script>
+</html>

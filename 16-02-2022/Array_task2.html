@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse elements</title>
+</head>
+<body>
+    <h1>Read an array and print its reverse</h1><br><br><br>
+    <script>
+function revArr(l) {
+    var arr =[];
+    for(var i = l.length-1; i >= 0; i--) {
+        arr.push(l[i]);
+    }
+    return arr;
+}
+
+var a = prompt("enter elements.").split(",");
+document.write(revArr(a));
+
+
+    </script>
+</body>
+</html>

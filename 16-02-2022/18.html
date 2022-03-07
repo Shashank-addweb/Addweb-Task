@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindrome</title>
+</head>
+<body>
+    <script>
+        
+        var number =parseInt(prompt("enter string "));
+        var n1=number
+        var r,rnum=0;
+        while(n1 !=0)
+        {
+            r=n1%10;
+            rnum= rnum*10 +r
+            n1 = parseInt(n1/10);
+        }
+        if (rnum==number){
+            document.write("a palindrome")
+        }
+        else
+        {
+            document.write(" not a palindrome")
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* css reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* css variables */
+:root{
+    --navbar-height:59px;
+}
+/* navigation bar */
+#navbar{
+    position: relative;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+}
+ /* logo and image */
+ #logo{
+    margin: -15px -17px;
+    border-radius: 20px;
+ }
+ 
+ #logo img{
+     height: 103px;
+     margin: 18px 24px;
+ }
+ /* list styleing */
+ #navbar ul{
+     display: flex;
+ }
+ #navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+
+}
+ #navbar ul li{
+     list-style: none;
+     font-size: 1.3rem;
+
+ }
+ #navbar ul li a{
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none ;
+
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color: rgb(175, 231, 22);
+
+}
+/* home section */
+#home{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 3px 200px;
+    justify-content: center;
+    align-items: center;
+}
+#home::before{
+    content: "";
+    background:url("/website/image/banner2.jpg") no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+/* utility classes */
+#home h1{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+#home p{
+    color: rgb(238, 23, 23);
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+/* services section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{
+    border: 2px brown;
+}
+#services .box img{
+    height: 160px;
+}
+#services{}
+/* utlity calsses */
+.h-primary{
+    font-size: 2.8rem;
+    padding: 12px;
+}
+.h-secondary{
+    font-size: 3.8rem;
+    padding: 12px;
+}
+    .btn{
+        padding: 6px 20px;
+        border: 2px solid white;
+        background-color: brown;
+        color: rgb(222, 227, 231);
+        margin: 17px;
+        font-size: 1.5rem;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    .center{
+        text-align: center;
+    }

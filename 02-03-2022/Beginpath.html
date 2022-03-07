@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align: center ;">
+
+<canvas id="myCanvas" width="350" height="350" style="border:1px solid #bb1b1b; box-shadow: #bb1b1b;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+ctx.beginPath();              
+ctx.lineWidth = "100";
+ctx.strokeStyle = "green";  // Green path
+ctx.moveTo(0, 0);
+ctx.lineTo(350,350);
+ctx.stroke();  // Draw it
+ctx.beginPath();
+ctx.strokeStyle = "red";  // Purple path
+ctx.moveTo(350, 0);
+ctx.lineTo(0, 350);            
+ctx.stroke();  // Draw it
+ctx.beginPath();
+ctx.strokeStyle = "yellow";  // Purple path
+ctx.moveTo(170, 0);
+ctx.lineTo(175, 500);            
+ctx.stroke();  // Draw it
+ctx.beginPath();
+ctx.strokeStyle = "black";  // Purple path
+ctx.moveTo(10050, 0);
+ctx.lineTo(0, 175);            
+ctx.stroke();  // Draw it
+
+
+</script>
+
+</body>
+</html>

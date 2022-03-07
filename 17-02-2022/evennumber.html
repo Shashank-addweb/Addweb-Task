@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REVERSE ORDER</title>
+    </head>
+    <body><center>
+<u><b>Enter a number to(find wheather even or not ):</b></u><br><br><input type="int" id="rev" placeholder="fill it"/>
+        <button type="button" onclick="move()">Show output</button>
+
+      </center>  
+  </body>
+    <script>
+        function move(){
+        var a = document.getElementById("rev").value;
+        if(a%2==0){
+            document.write("It is an even number "+a)
+        }else {
+            document.write("Its is not an even number "+a)
+        }
+        }
+    </script>
+</html>

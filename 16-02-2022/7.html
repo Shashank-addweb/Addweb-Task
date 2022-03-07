@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loss&profit</title>
+    </head>
+    <body>
+        cost price:-<input type="int" id="cost"/><br><br>
+        selling price:-<input type="int" id="selling"/><br><br>
+        <button type="button" onclick="move()">Calculate</button>
+    </body>
+    <script>
+        function move(){
+            var cp = document.getElementById("cost").value;
+            var sp = document.getElementById("selling").value;
+            
+            document.write("profit is:-  ",cp-sp,"<br><br>");
+            document.write("loss is:-  ",sp-cp);
+        }
+    </script>
+</html>

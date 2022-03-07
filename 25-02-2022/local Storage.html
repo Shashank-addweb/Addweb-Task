@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+</head>
+<body>
+<center>
+
+
+ 
+  <form id="result">
+    
+      <label for="name">NAME:</label>
+      <input type="text"  id="name">
+<br>
+<br>
+    
+    
+      <label for="lname">LAST NAME:</label>
+      <input type="text" id="lname">
+<br>
+<br>
+    
+    <button type="button" onclick="savedata()" id="but">Submit</button>
+  </form>
+
+</center>
+</body>
+<script>
+ function savedata(){
+	let name ,lname  ;
+	 name =document.getElementById("name").value;
+	lname =document.getElementById("lname").value;
+	
+  localStorage.setItem("name",name)
+	localStorage.setItem("lname",lname)
+document.getElementById("result").innerHTML = localStorage.getItem("name");
+//document.getElementById("result").innerHTML = localStorage.getItem("lname");
+ 
+ }
+
+
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Db </title>
+</head>
+<body><form>
+    Enter our name:-<input type="text" id="in1">
+    version :-<input type="text" id="in2">
+    <button type="button" id="btn1" >Click to see the result </button>
+    </form>
+    <script>
+
+        const btnn = document.getElementById("btn1")
+        btnn.addEventListener("click",createdb)
+
+         function createdb()
+         { 
+             const dbname = document.getElementById("in1").value;
+             const dbversion = document.getElementById("in2").value;
+
+            const request = indexedDB.open(dbname,dbversion);
+
+         // on upgrade needed
+         request.onupgradeneeded = e =>{
+            alert("the data is upgraded")
+         }
+         //on success needed
+         request.onsuccess = e =>{
+             alert("success ")
+
+         }
+         // on error
+         request.onerror = e =>{
+             alert(`error !!`)
+
+         }
+         }
+    </script>
+    
+</body>
+</html>

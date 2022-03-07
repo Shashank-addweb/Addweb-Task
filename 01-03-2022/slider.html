@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Silder</title>
+    <style>
+        body{
+            background: rgba(47, 53, 58, 0.85);
+        }
+        h1
+        {
+            text-align: center;
+            letter-spacing: 0.3em;
+            font-size: 40px;
+            margin-top: 50px;
+            color:whitesmoke;
+
+        }
+        .maindiv{
+            width: 70%;
+            height: 400px;
+            position:absolute;
+            transform:translate(-50% , -50%);
+            left: 50%;
+            top: 50%;
+            background-image: url("/01-03-2022/gchoco/images/choclate_img.jpg");
+            box-shadow: 1px 2px 25px 10px white;
+            animation:slider 9s infinite linear;
+        }
+        @keyframes slider{
+            0%{  background-image: url("/01-03-2022/gchoco/images/choc.png");}
+            25%{background-image: url("/01-03-2022/gchoco/images/choklet.png");}
+            75%{background-image: url("/01-03-2022/gchoco/images/cross.png");}   
+        }
+    </style>
+    </head>
+    <body>
+        <h1>CSS Silder Animation</h1>
+        <div class="maindiv">
+
+        </div>
+    </body>
+</html>

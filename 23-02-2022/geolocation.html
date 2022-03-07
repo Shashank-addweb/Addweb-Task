@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head><title>GEOLOCATION</title></head>
+    <BODY>
+        <center><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="button" onclick="getlocation()">get location</button> 
+            <div id="output"></div>
+        </center>
+    </BODY>
+    <script>
+        var x = document.getElementById("output");
+        function getlocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showposition);
+            }else{
+                x.innerHTML = "Not supporting";
+            }
+            function showposition(position){
+        
+                
+                x.innerHTML = "Latitude :-" +position.coords.latitude + "Longitude :-" +position.coords.longitude;
+
+            }
+
+        }
+    </script>
+</html>

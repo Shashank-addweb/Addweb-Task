@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            seconds
+        </title>
+    </head>
+    <body>
+        <center>
+            <h1>put seconds and it will convert it into minutes and hour</h1>
+            Seconds :- <input type="int" id="sec" placeholder="-/-/-/-/-/--/-/"/>
+            <button type="button" onclick="move()" >submit </button>
+        </center>
+    </body>
+    <script>
+        function move(){
+            var a = document.getElementById("sec").value;
+            var b = a%60;
+            var c = a/60;
+            var d = c%60;
+            var hr = c/60;
+
+            document.write("The given seconds are  " +sec).value;
+            document.write("Hours are : -"+hr);
+            document.write("Minutes are : -"+d);
+            document.write("Seconds are : -"+b);
+
+        }
+    </script>
+</html>

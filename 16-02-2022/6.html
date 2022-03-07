@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign of product</title>
+    </head>
+    <body>
+        <center>
+            <form>
+        <b><h3>FILL THE NUMBER</h3></b><br><br>
+        FIRST NUMBER:-<input type="int" id="num1" placeholder="value1"/><br><br>
+        SECOND NUMBER:-<input type="int" id="num2" placeholder="value2"/><br><br>
+        THIRD NUMBER:-<input type="int" id="num3" placeholder="value3"/><br><br>
+                </form>
+                <button type="button" onclick="move()">SUBMIT FOR RESULT</button>
+                </center>
+    </body>
+    <script>
+        function move(){
+            var a = document.getElementById("num1").value;
+            var b = document.getElementById("num2").value;
+            var c = document.getElementById("num3").value;
+            var p =(a*b*c);
+            if(p>0){
+                document.write(p+"     THE NUMBER IS POSITIVE ")
+            }else{
+                document.write(p+"      THE NUMBER IS NEGATIVE")
+            }
+        }
+    </script>
+</html>

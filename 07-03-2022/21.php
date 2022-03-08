@@ -1,5 +1,5 @@
 <?php
-$num=2034;
+$num=2002;
 echo "4 digit number =".$num."<br>";
 $num1=$num;
 $i=0;
@@ -11,6 +11,12 @@ while($num1>0)
    
 
 }
-echo "reverse number= ".$i."<br>";
+if($i==$num){
+    echo "given number is palindrome";
+}
+else
+{
+    echo "given number is not palindrome";
+}
 
 ?>

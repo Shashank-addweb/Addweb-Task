@@ -27,7 +27,7 @@ function wordReverse($str)
 }
 
 
-$str = "hello jatin";
+$str = "Shashank";
 echo wordReverse($str);
 
 ?>

@@ -11,7 +11,7 @@ function charCheck($char)
 	echo " Special Character ";
 }
 
-$char = 'k';
+$char = '1';
 charCheck($char);
 
 ?>

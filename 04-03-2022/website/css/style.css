@@ -59,14 +59,14 @@
 #home{
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 628px;
     padding: 3px 200px;
     justify-content: center;
     align-items: center;
 }
 #home::before{
     content: "";
-    background:url("/website/image/banner2.jpg") no-repeat center center/cover;
+    background:url("/04-03-2022/website/image/banner2.jpg") no-repeat center center/cover;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -90,20 +90,69 @@
     margin: 34px;
     display: flex;
 }
+#services .box p{
+    font-family: 'Bree Serif', serif;
+}
 #services .box{
-    border: 2px brown;
+    border:2px solid brown;
+    padding: 50px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    margin: 3px 6px;
 }
 #services .box img{
-    height: 160px;
+    
+    margin: auto;
+    display: block;
+    height: 100px;
+    border: solid lightcyan 8px;
 }
-#services{}
+.fly:hover{
+        
+        transform: scale(1.5); 
+        transition: transform .5s ease;
+        
+}
+/* client sections */
+#client-section{
+    height:0px;
+}
+#client-section::before{
+    content: "";
+    position: absolute;
+    background: url("/04-03-2022/website/image/blur.jpeg");
+    width: 100%;
+    height:63%;
+    z-index: -1;
+    opacity: 0.4;
+}
+.clients-item{
+    padding: 25px;
+}
+#clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
 /* utlity calsses */
 .h-primary{
-    font-size: 2.8rem;
-    padding: 12px;
-}
-.h-secondary{
     font-size: 3.8rem;
+    padding: 12px;
+    
+    
+}
+.h-primary2{
+    font-size: 3.8rem;
+    padding: 12px;
+    background-color: antiquewhite;
+    
+}
+
+
+.h-secondary{
+    font-size: 1.8rem;
     padding: 12px;
 }
     .btn{
@@ -118,4 +167,5 @@
     }
     .center{
         text-align: center;
+        
     }

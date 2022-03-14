@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session Storage</title>
+  </head>
+  <body>
+    <time id="current-time"></time>
+    <script>
+      const currentTimeDOM = document.getElementById("current-time");
+      window.onload = () => {
+        sessionStorage.second = 0;
+        setInterval(() => {
+          if (sessionStorage.second) {
+            sessionStorage.second = Number(sessionStorage.second) + 1;
+          }
+          currentTimeDOM.innerHTML = `${sessionStorage.second} ${
+            sessionStorage.second == 1 ? `second` : `seconds`
+          } passed`;
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>

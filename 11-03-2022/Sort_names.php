@@ -1,5 +1,5 @@
 <?php
-$arr = array('krishna','tanu','antima','unnati','peehu');
+$arr = array('Shashank','jatin','aakash','ronak','krishna');
 
 $l = count($arr);
 $temp=0;

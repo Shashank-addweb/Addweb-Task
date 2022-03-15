@@ -1,27 +1,18 @@
-
 <?php
-$cookie_name = "gfg";
-$cookie_value = "GeeksforGeeks";
+error_reporting(0);
+if(!isset($_COOKIE['username']))
+{
+    header("Location:cookies.php");
+}
+else{
+    echo $_COOKIE["username"];  
+    echo $_COOKIE["password"];
+    echo "<br><br><br><br><center><form method=GET > <input type=submit name=logout value=Logout> </form></center>";
+    if(isset($_GET['logout'])){
+        setcookie( "username", "", time()- 20);
+        setcookie( "password", "", time()- 20);
+        header("Location:cookies.php");
+    }
 
-// 86400 = 1 day
-setcookie($cookie_name, $cookie_value, time() + 10, "/");
-setcookie("gfg", "", time() - 3600);
+}
 ?>
-
-<html>
-<body>
-	<?php
-	if(!isset($_COOKIE[$cookie_name])) {
-		echo "Cookie named '" . $cookie_name . "' is not set!";
-	}
-	else {
-		echo "Cookie '" . $cookie_name . "' is set!<br>";
-		echo "Value is: " . $_COOKIE[$cookie_name];
-	}
-    
-	?>
-
-</body>
-
-</html>
-

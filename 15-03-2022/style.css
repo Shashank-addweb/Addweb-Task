@@ -1,0 +1,14 @@
+#frm{
+    text-align: center;
+    
+}
+#frm input{
+    background-color: rgb(163, 145, 145);
+
+}
+#frm button{
+    height: 10%;
+    width: 10%;
+    background-color:hotpink;
+    cursor: pointer;
+}

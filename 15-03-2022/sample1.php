@@ -7,15 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="sample2.php" method="POST">
+    <form method="POST">
         
 Username: <input name="username" type="text" required>
 Password: <input name="password" type="password" required><br/>
-<input type="checkbox" name="remember" id="remember" value="Remember">Remember Me </input><br/>
-<input type="submit" value="Login">
+<input type="submit" name = "submit"value="Login">
 </form>
-
-    </form>
-    
 </body>
 </html>
+<?php
+if(isset($_POST["submit"])){
+    setcookie("username",$_POST['username'],time()+20);
+    setcookie("password",$_POST['password'],time()+20);
+    header('Location:sample2.php');
+}
+?>

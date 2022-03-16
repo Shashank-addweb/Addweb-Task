@@ -7,11 +7,13 @@
     <title>Form validation</title>
     <link rel="stylesheet" href="/15-03-2022/style.css">
 </head>
-<body>
+<body id="boo">
     <form id="frm">
-        user name:-<input type="text" id ="user" placeholder="Eg:-Shashank098"><br><br>
-        Password :-<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br><br>
+        <div class="pq">
+        USER NAME - <input type="text" id ="user" placeholder="Eg:-Shashank098"><br><br>
+        PASSWORD - <input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br><br>
         <button type="button" id ="but" >Login</button>
+    </div>
     </form>
     
 </body>

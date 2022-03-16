@@ -48,4 +48,9 @@ border-radius: 20rem;
     /* background-color:rgb(207, 195, 21); */
     cursor: pointer;
     border-radius: 20rem;
+    
+}
+#div .sty{
+    background-color: black;
+    padding: 10px;
 }

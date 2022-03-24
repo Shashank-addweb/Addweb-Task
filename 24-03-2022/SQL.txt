@@ -1,0 +1,1145 @@
+shashank@shashank:~$ sudo /opt/lampp/lampp start
+[sudo] password for shashank: 
+Starting XAMPP for Linux 7.4.27-2...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+shashank@shashank:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Task               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| test               |
++--------------------+
+7 rows in set (0.046 sec)
+
+MariaDB [(none)]> create database Joins;
+Query OK, 1 row affected (0.041 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Joins              |
+| Task               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use Joins;
+Database changed
+MariaDB [Joins]> create table department(id int(20) primary key auto_increment,name varchar(20),dept varchar(20),employe_job varchar(20),employe_no int(20),salary int(20),annual_salary int(20),commission int(20));
+Query OK, 0 rows affected (0.370 sec)
+
+MariaDB [Joins]> desc department;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(20)     | NO   | PRI | NULL    | auto_increment |
+| name          | varchar(20) | YES  |     | NULL    |                |
+| dept          | varchar(20) | YES  |     | NULL    |                |
+| employe_job   | varchar(20) | YES  |     | NULL    |                |
+| employe_no    | int(20)     | YES  |     | NULL    |                |
+| salary        | int(20)     | YES  |     | NULL    |                |
+| annual_salary | int(20)     | YES  |     | NULL    |                |
+| commission    | int(20)     | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.002 sec)
+
+MariaDB [Joins]> insert into department(id,name,dept,employe_job,employe_no,salary,annual_salary,commission)
+    -> values(I,'Shashank tak','Information Tech.','clerks','$2500','$1,50,000',4500);
+ERROR 1054 (42S22): Unknown column 'I' in 'field list'
+MariaDB [Joins]> insert into department(id,name,dept,employe_job,employe_no,salary,annual_salary,commission) values(1,'Shashank tak','Information Tech.','clerks','$2500','$1,50,000',4500);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [Joins]> insert into department(id,name,dept,employe_job,employe_no,salary,annual_salary,commission) values(1,'Shashank tak','Information Tech.','clerks',1011,'$2500','$1,50,000',4500);
+ERROR 1366 (22007): Incorrect integer value: '$2500' for column `Joins`.`department`.`salary` at row 1
+MariaDB [Joins]> insert into department(id,name,dept,employe_job,employe_no,salary,annual_salary,commission) values(1,'Shashank tak','Information Tech.','clerks',1011,2500,150,000,4500);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [Joins]> insert into department(id,name,dept,employe_job,employe_no,salary,annual_salary,commission) values(1,'Shashank tak','Information Tech.','clerks',1011,2500,150000,4500);
+Query OK, 1 row affected (0.088 sec)
+
+MariaDB [Joins]> select * from department;
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+| id | name         | dept              | employe_job | employe_no | salary | annual_salary | commission |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak | Information Tech. | clerks      |       1011 |   2500 |        150000 |       4500 |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary,commission) values('Aakash chamoli','Hotel Management','waiter',1011,1500,50000,500);
+Query OK, 1 row affected (0.118 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+-------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept              | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+-------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech. | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management  | waiter      |       1011 |   1500 |         50000 |        500 |
++----+----------------+-------------------+-------------+------------+--------+---------------+------------+
+2 rows in set (0.000 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary,commission) values('Jatin kumawat','Govermnet derpatment','Postman',1013,500,70000,600);
+Query OK, 1 row affected (0.124 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary,commission) values('Ajay obroye','computer science','Manager',1014,10500,2000000,1000);
+Query OK, 1 row affected (0.059 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary,commission) values('Garvit tak','Businessman','Ceo',1015,155000,85000000,11000);
+Query OK, 1 row affected (0.070 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select dept from department;
++----------------------+
+| dept                 |
++----------------------+
+| Information Tech.    |
+| Hotel Management     |
+| Govermnet derpatment |
+| computer science     |
+| Businessman          |
++----------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select name , employe_job from department;
++----------------+-------------+
+| name           | employe_job |
++----------------+-------------+
+| Shashank tak   | clerks      |
+| Aakash chamoli | waiter      |
+| Jatin kumawat  | Postman     |
+| Ajay obroye    | Manager     |
+| Garvit tak     | Ceo         |
++----------------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [Joins]> select name , salary from department;
++----------------+--------+
+| name           | salary |
++----------------+--------+
+| Shashank tak   |   2500 |
+| Aakash chamoli |   1500 |
+| Jatin kumawat  |    500 |
+| Ajay obroye    |  10500 |
+| Garvit tak     | 155000 |
++----------------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_no , annual_salary from department;
++------------+---------------+
+| employe_no | annual_salary |
++------------+---------------+
+|       1011 |        150000 |
+|       1011 |         50000 |
+|       1013 |         70000 |
+|       1014 |       2000000 |
+|       1015 |      85000000 |
++------------+---------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select name from department
+    -> where employe_no=1011;
++----------------+
+| name           |
++----------------+
+| Shashank tak   |
+| Aakash chamoli |
++----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary,commission) values('Ronak jain','Information Tech.','clerks',1016,2500,150000,4500);
+Query OK, 1 row affected (0.046 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+6 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> where employe_job=clerks and salary>2000;
+ERROR 1054 (42S22): Unknown column 'clerks' in 'where clause'
+MariaDB [Joins]> select * from department
+    -> where employe_job='clerks' and salary>2000;
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+| id | name         | dept              | employe_job | employe_no | salary | annual_salary | commission |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak | Information Tech. | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  6 | Ronak jain   | Information Tech. | clerks      |       1016 |   2500 |        150000 |       4500 |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+
+2 rows in set (0.001 sec)
+
+MariaDB [Joins]> insert into department(name,dept,employe_job,employe_no,salary,annual_salary) values('Ronak jain','Information Tech.','clerks',1016,2500,150000);
+Query OK, 1 row affected (0.060 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select commission from department
+    -> where commission='';
+Empty set, 1 warning (0.000 sec)
+
+MariaDB [Joins]> select commission from department where commission>1000;
++------------+
+| commission |
++------------+
+|       4500 |
+|      11000 |
+|       4500 |
++------------+
+3 rows in set (0.001 sec)
+
+MariaDB [Joins]> select commission from department where commission is null ;
++------------+
+| commission |
++------------+
+|       NULL |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where commission is null ;
++----+------------+-------------------+-------------+------------+--------+---------------+------------+
+| id | name       | dept              | employe_job | employe_no | salary | annual_salary | commission |
++----+------------+-------------------+-------------+------------+--------+---------------+------------+
+|  7 | Ronak jain | Information Tech. | clerks      |       1016 |   2500 |        150000 |       NULL |
++----+------------+-------------------+-------------+------------+--------+---------------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> alter table department add Experience_yrs int(10);
+Query OK, 0 rows affected (0.168 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Joins]> select * from derpartment
+    -> where salary>3000;
+ERROR 1146 (42S02): Table 'Joins.derpartment' doesn't exist
+MariaDB [Joins]> show tables
+    -> ;
++-----------------+
+| Tables_in_Joins |
++-----------------+
+| department      |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select * from derpartment where salary>3000;
+ERROR 1146 (42S02): Table 'Joins.derpartment' doesn't exist
+MariaDB [Joins]> select * from derpartment;
+ERROR 1146 (42S02): Table 'Joins.derpartment' doesn't exist
+MariaDB [Joins]> exit
+Bye
+shashank@shashank:~$ sudo /opt/lampp/bin/mysql -u root -p
+[sudo] password for shashank: 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 72
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Joins              |
+| Task               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use Joins;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [Joins]> show tables;
++-----------------+
+| Tables_in_Joins |
++-----------------+
+| department      |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |           NULL |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |           NULL |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |           NULL |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |           NULL |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |           NULL |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |           NULL |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from derpartment where salary>3000;
+ERROR 1146 (42S02): Table 'Joins.derpartment' doesn't exist
+MariaDB [Joins]> select * from department 
+    -> where salary>3000;
++----+-------------+------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name        | dept             | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+-------------+------------------+-------------+------------+--------+---------------+------------+----------------+
+|  4 | Ajay obroye | computer science | Manager     |       1014 |  10500 |       2000000 |       1000 |           NULL |
+|  5 | Garvit tak  | Businessman      | Ceo         |       1015 | 155000 |      85000000 |      11000 |           NULL |
++----+-------------+------------------+-------------+------------+--------+---------------+------------+----------------+
+2 rows in set (0.001 sec)
+
+MariaDB [Joins]> update department set Experience=5
+    -> where id=1;
+ERROR 1054 (42S22): Unknown column 'Experience' in 'field list'
+MariaDB [Joins]> update department set Experience_yrs=5 where id=1;
+Query OK, 1 row affected (0.051 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |           NULL |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |           NULL |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |           NULL |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |           NULL |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |           NULL |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> update department set Experience_yrs=6 where id=2;
+Query OK, 1 row affected (0.057 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=8 where id=3;
+Query OK, 1 row affected (0.058 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=10 where id=4;
+Query OK, 1 row affected (0.058 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=2 where id=5;
+Query OK, 1 row affected (0.061 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=0 where id=6;
+Query OK, 1 row affected (0.087 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs= where id=7;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id=7' at line 1
+MariaDB [Joins]> update department set Experience_yrs='' where id=7;
+ERROR 1366 (22007): Incorrect integer value: '' for column `Joins`.`department`.`Experience_yrs` at row 1
+MariaDB [Joins]> update department set Experience_yrs=null where id=7;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> update department set Experience_yrs=5 
+    -> ;
+Query OK, 6 rows affected (0.086 sec)
+Rows matched: 7  Changed: 6  Warnings: 0
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              5 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              5 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |              5 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              5 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              5 |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |              5 |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> update department set Experience_yrs=null where id=7;
+Query OK, 1 row affected (0.055 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=0 where id=6;
+Query OK, 1 row affected (0.067 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=2 where id=5;
+Query OK, 1 row affected (0.085 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=10 where id=4;
+Query OK, 1 row affected (0.048 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=8 where id=3;
+Query OK, 1 row affected (0.055 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Experience_yrs=6 where id=2;
+Query OK, 1 row affected (0.073 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 |
+|  7 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> where dept=Information Tech. and Experience_yrs>3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Tech. and Experience_yrs>3' at line 2
+MariaDB [Joins]> select * from department where dept=InformationTech. and Experience_yrs>3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and Experience_yrs>3' at line 1
+MariaDB [Joins]> select * from department where dept='InformationTech.' and Experience_yrs>3;
+Empty set (0.001 sec)
+
+MariaDB [Joins]> update department set name=Raghav goyal
+    -> where id =7;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'goyal
+where id =7' at line 1
+MariaDB [Joins]> update department set name='Raghav goyal' where id =7;
+Query OK, 1 row affected (0.071 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select name from department
+    -> where Experience_yrs > 3;
++----------------+
+| name           |
++----------------+
+| Shashank tak   |
+| Aakash chamoli |
+| Jatin kumawat  |
+| Ajay obroye    |
++----------------+
+4 rows in set (0.001 sec)
+
+MariaDB [Joins]> alter table department add Joiningdate varchar(20);
+Query OK, 0 rows affected (0.127 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Joins]> update department set Joingingdate='30 JUNE 2020' where id=1;
+ERROR 1054 (42S22): Unknown column 'Joingingdate' in 'field list'
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+-------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+-------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | NULL        |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | NULL        |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | NULL        |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | NULL        |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | NULL        |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | NULL        |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | NULL        |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+-------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> update department set Joiningdate='30 JUNE 2020' where id=1;
+Query OK, 1 row affected (0.060 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 JUNE 2020' where id=2;
+Query OK, 1 row affected (0.081 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 DEC 2020' where id=3;
+Query OK, 1 row affected (0.059 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 JAN 2020' where id=4;
+Query OK, 1 row affected (0.098 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 JUL 2020' where id=5;
+Query OK, 1 row affected (0.039 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 APRIL 2020' where id=6;
+Query OK, 1 row affected (0.059 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> update department set Joiningdate='31 FEB 2020' where id=7;
+Query OK, 1 row affected (0.158 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> where Joiningdate between '30 JAN 2020' and '31 DEC 2020';
++----+---------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name          | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+---------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  1 | Shashank tak  | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  3 | Jatin kumawat | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  6 | Ronak jain    | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
++----+---------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+3 rows in set (0.001 sec)
+
+MariaDB [Joins]> getdate();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'getdate()' at line 1
+MariaDB [Joins]> select GETDATE();
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [Joins]> select DATE();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [Joins]> select DATE;
+ERROR 1054 (42S22): Unknown column 'DATE' in 'field list'
+MariaDB [Joins]> select GETDATE ;
+ERROR 1054 (42S22): Unknown column 'GETDATE' in 'field list'
+MariaDB [Joins]> SELECT 
+    ->    GETDATE()         as 'GETDATE()'  
+    -> ;
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [Joins]> select GETDATE() as 'GETDATE()'; 
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [Joins]> select sysdate();
++---------------------+
+| sysdate()           |
++---------------------+
+| 2022-03-24 15:38:37 |
++---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> Ctrl-C -- exit!
+Aborted
+shashank@shashank:~$ sudo /opt/lampp/bin/mysql -u root -p
+[sudo] password for shashank: 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 79
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Joins              |
+| Task               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use Joins;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [Joins]> show tables;
++-----------------+
+| Tables_in_Joins |
++-----------------+
+| department      |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department ;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select currentuser();
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [Joins]> select current_user();
++----------------+
+| current_user() |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select name from department 
+    -> where 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [Joins]> select name,employe_no  from department 
+    -> where employe_job='clerks';
++--------------+------------+
+| name         | employe_no |
++--------------+------------+
+| Shashank tak |       1011 |
+| Ronak jain   |       1016 |
+| Raghav goyal |       1016 |
++--------------+------------+
+3 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> where name='s%';
+Empty set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name='S%';
+Empty set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name=S%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [Joins]> select * from department where name like 'S%';
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name         | dept              | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  1 | Shashank tak | Information Tech. | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020 |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like 'r%';
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name         | dept              | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  6 | Ronak jain   | Information Tech. | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal | Information Tech. | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
++----+--------------+-------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+2 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like '_a%';
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020  |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020  |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+4 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like '_____';
+Empty set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like '______________';
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name           | dept             | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  2 | Aakash chamoli | Hotel Management | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020 |
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like '______________%';
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name           | dept             | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  2 | Aakash chamoli | Hotel Management | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020 |
++----+----------------+------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department where name like '_____________%';
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+2 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select name from department
+    -> where employe_job not like 'Manager';
++----------------+
+| name           |
++----------------+
+| Shashank tak   |
+| Aakash chamoli |
+| Jatin kumawat  |
+| Garvit tak     |
+| Ronak jain     |
+| Raghav goyal   |
++----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [Joins]> select name from department where employe_job not like 'Manager','clerks','ceo';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''clerks','ceo'' at line 1
+MariaDB [Joins]> select name from department where employe_job not like ''Manager','clerks','ceo'';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Manager','clerks','ceo''' at line 1
+MariaDB [Joins]> select name from department where employe_job not in ('Manager','clerks','Ceo');
++----------------+
+| name           |
++----------------+
+| Aakash chamoli |
+| Jatin kumawat  |
++----------------+
+2 rows in set (0.000 sec)
+
+MariaDB [Joins]> select name count(*);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'count(*)' at line 1
+MariaDB [Joins]> select count(*);
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select count(*) form department;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'department' at line 1
+MariaDB [Joins]> select count(*) department;
++------------+
+| department |
++------------+
+|          1 |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select count(*)  from department;
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select sum(salary) from department;
++-------------+
+| sum(salary) |
++-------------+
+|      175000 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [Joins]> select sum(name) from department;
++-----------+
+| sum(name) |
++-----------+
+|         0 |
++-----------+
+1 row in set, 7 warnings (0.001 sec)
+
+MariaDB [Joins]> select sum(annual_salary) from department;
++--------------------+
+| sum(annual_salary) |
++--------------------+
+|           87570000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select max(annual_salary) from department;
++--------------------+
+| max(annual_salary) |
++--------------------+
+|           85000000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select min(annual_salary) from department;
++--------------------+
+| min(annual_salary) |
++--------------------+
+|              50000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select avg(annual_salary) from department;
++--------------------+
+| avg(annual_salary) |
++--------------------+
+|      12510000.0000 |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select avg(salary) from department;
++-------------+
+| avg(salary) |
++-------------+
+|  25000.0000 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select max(salary) from department
+    -> where employe_job='clerks';
++-------------+
+| max(salary) |
++-------------+
+|        2500 |
++-------------+
+1 row in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> order by salary;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department order by name;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department order desc  salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc  salary' at line 1
+MariaDB [Joins]> select * from department order by  desc salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc salary' at line 1
+MariaDB [Joins]> select * from department order by  salary desc;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.000 sec)
+
+MariaDB [Joins]> select name, salary, salary15/100 as 'HRA', salary10/100 as 'DA', salary5/100 as 'PF', salary+salary15/100+salary10/100-salary5/100 as 'Total salary' from department;
+ERROR 1054 (42S22): Unknown column 'salary15' in 'field list'
+MariaDB [Joins]> select name, salary, salary(15/100) as 'HRA', salary(10/100) as 'DA', salary(5/100) as 'PF', salary+salary(15/100+salary10/100)-salary(5/100) as 'Total salary' from department;
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [Joins]> select name, salary, salary*15/100 as 'HRA', salary*10/100 as 'DA', salary*5/100 as 'PF', salary+salary*15/100+salary*10/100-salary*5/100 as 'Total salary' from department;
++----------------+--------+------------+------------+-----------+--------------+
+| name           | salary | HRA        | DA         | PF        | Total salary |
++----------------+--------+------------+------------+-----------+--------------+
+| Shashank tak   |   2500 |   375.0000 |   250.0000 |  125.0000 |    3000.0000 |
+| Aakash chamoli |   1500 |   225.0000 |   150.0000 |   75.0000 |    1800.0000 |
+| Jatin kumawat  |    500 |    75.0000 |    50.0000 |   25.0000 |     600.0000 |
+| Ajay obroye    |  10500 |  1575.0000 |  1050.0000 |  525.0000 |   12600.0000 |
+| Garvit tak     | 155000 | 23250.0000 | 15500.0000 | 7750.0000 |  186000.0000 |
+| Ronak jain     |   2500 |   375.0000 |   250.0000 |  125.0000 |    3000.0000 |
+| Raghav goyal   |   2500 |   375.0000 |   250.0000 |  125.0000 |    3000.0000 |
++----------------+--------+------------+------------+-----------+--------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select * from department
+    -> where Experience_yrs between 4 and 8;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020 |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020 |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020  |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+--------------+
+3 rows in set (0.001 sec)
+
+MariaDB [Joins]> select salary*12 'Annual' from department
+    -> order by salary desc;
++---------+
+| Annual  |
++---------+
+| 1860000 |
+|  126000 |
+|   30000 |
+|   30000 |
+|   30000 |
+|   18000 |
+|    6000 |
++---------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_no,count(employe_no) from department group by employe_no;
++------------+-------------------+
+| employe_no | count(employe_no) |
++------------+-------------------+
+|       1011 |                 2 |
+|       1013 |                 1 |
+|       1014 |                 1 |
+|       1015 |                 1 |
+|       1016 |                 2 |
++------------+-------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,count(employe_no) from department group by employe_job;
++-------------+-------------------+
+| employe_job | count(employe_no) |
++-------------+-------------------+
+| Ceo         |                 1 |
+| clerks      |                 3 |
+| Manager     |                 1 |
+| Postman     |                 1 |
+| waiter      |                 1 |
++-------------+-------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,sum(id),count(employe_job) from department group by employe_job;
++-------------+---------+--------------------+
+| employe_job | sum(id) | count(employe_job) |
++-------------+---------+--------------------+
+| Ceo         |       5 |                  1 |
+| clerks      |      14 |                  3 |
+| Manager     |       4 |                  1 |
+| Postman     |       3 |                  1 |
+| waiter      |       2 |                  1 |
++-------------+---------+--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,sum(employe_job) from department group by employe_job;
++-------------+------------------+
+| employe_job | sum(employe_job) |
++-------------+------------------+
+| Ceo         |                0 |
+| clerks      |                0 |
+| Manager     |                0 |
+| Postman     |                0 |
+| waiter      |                0 |
++-------------+------------------+
+5 rows in set, 7 warnings (0.001 sec)
+
+MariaDB [Joins]> select * from department;
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+| id | name           | dept                 | employe_job | employe_no | salary | annual_salary | commission | Experience_yrs | Joiningdate   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+|  1 | Shashank tak   | Information Tech.    | clerks      |       1011 |   2500 |        150000 |       4500 |              5 | 30 JUNE 2020  |
+|  2 | Aakash chamoli | Hotel Management     | waiter      |       1011 |   1500 |         50000 |        500 |              6 | 31 JUNE 2020  |
+|  3 | Jatin kumawat  | Govermnet derpatment | Postman     |       1013 |    500 |         70000 |        600 |              8 | 31 DEC 2020   |
+|  4 | Ajay obroye    | computer science     | Manager     |       1014 |  10500 |       2000000 |       1000 |             10 | 31 JAN 2020   |
+|  5 | Garvit tak     | Businessman          | Ceo         |       1015 | 155000 |      85000000 |      11000 |              2 | 31 JUL 2020   |
+|  6 | Ronak jain     | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       4500 |              0 | 31 APRIL 2020 |
+|  7 | Raghav goyal   | Information Tech.    | clerks      |       1016 |   2500 |        150000 |       NULL |           NULL | 31 FEB 2020   |
++----+----------------+----------------------+-------------+------------+--------+---------------+------------+----------------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_no,sum(salary) from department group by employe_job;
++------------+-------------+
+| employe_no | sum(salary) |
++------------+-------------+
+|       1015 |      155000 |
+|       1011 |        7500 |
+|       1014 |       10500 |
+|       1013 |         500 |
+|       1011 |        1500 |
++------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_no,count(employe_job),sum(salary) from department group by employe_job;
++------------+--------------------+-------------+
+| employe_no | count(employe_job) | sum(salary) |
++------------+--------------------+-------------+
+|       1015 |                  1 |      155000 |
+|       1011 |                  3 |        7500 |
+|       1014 |                  1 |       10500 |
+|       1013 |                  1 |         500 |
+|       1011 |                  1 |        1500 |
++------------+--------------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,count(employe_job),sum(salary) from department group by employe_job;
++-------------+--------------------+-------------+
+| employe_job | count(employe_job) | sum(salary) |
++-------------+--------------------+-------------+
+| Ceo         |                  1 |      155000 |
+| clerks      |                  3 |        7500 |
+| Manager     |                  1 |       10500 |
+| Postman     |                  1 |         500 |
+| waiter      |                  1 |        1500 |
++-------------+--------------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_no,max(salary) from department group by employe_job;
++------------+-------------+
+| employe_no | max(salary) |
++------------+-------------+
+|       1015 |      155000 |
+|       1011 |        2500 |
+|       1014 |       10500 |
+|       1013 |         500 |
+|       1011 |        1500 |
++------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,max(salary) from department group by employe_job;
++-------------+-------------+
+| employe_job | max(salary) |
++-------------+-------------+
+| Ceo         |      155000 |
+| clerks      |        2500 |
+| Manager     |       10500 |
+| Postman     |         500 |
+| waiter      |        1500 |
++-------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,min(salary) from department group by employe_job;
++-------------+-------------+
+| employe_job | min(salary) |
++-------------+-------------+
+| Ceo         |      155000 |
+| clerks      |        2500 |
+| Manager     |       10500 |
+| Postman     |         500 |
+| waiter      |        1500 |
++-------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> select employe_job,max(salary) from department group by employe_job;
++-------------+-------------+
+| employe_job | max(salary) |
++-------------+-------------+
+| Ceo         |      155000 |
+| clerks      |        2500 |
+| Manager     |       10500 |
+| Postman     |         500 |
+| waiter      |        1500 |
++-------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Joins]> 
+

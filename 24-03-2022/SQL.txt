@@ -1067,7 +1067,7 @@ MariaDB [Joins]> select employe_no,sum(salary) from department group by employe_
 |       1013 |         500 |
 |       1011 |        1500 |
 +------------+-------------+
-5 rows in set (0.001 sec)
+5 rows in set (0.001 sec
 
 MariaDB [Joins]> select employe_no,count(employe_job),sum(salary) from department group by employe_job;
 +------------+--------------------+-------------+

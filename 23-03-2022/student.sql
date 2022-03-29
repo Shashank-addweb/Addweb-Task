@@ -269,7 +269,7 @@ INSERT INTO `Source` (`ID`, `Name`, `Yes or no`, `Liked`, `Not Liked`, `Best`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Subjects`
+-- Table structure for table `Subjects'
 --
 
 CREATE TABLE `Subjects` (
